@@ -1,0 +1,44 @@
+<html xmlns="http://www.w3.org/1999/xhtml"><head><script async="" src="https://www.google-analytics.com/analytics.js"></script><script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto%7CRoboto+Mono" media="all" /><script>WebFont.load({google: {families: ["Roboto", "Roboto Mono"]}});</script><script src="https://unpkg.com/aframe-physics-system@^1.4.x/dist/aframe-physics-system.min.js" data-component-description="Physics system for A-Frame VR, built on Cannon.js" data-component-names="dynamic-body,static-body,constraint" data-component-url="https://npmjs.com/package/aframe-physics-system" data-package-name="aframe-physics-system"></script></head><body class="a-body aframe-inspector-opened"><a-entity position="-0.5 0.5 -0.5" scale="0.6 1.2 1" text-geometry="value: VAPORWAVE; font: #exoFont; bevelEnabled: true; bevelSize: 0.1; bevelThickness: 0.1; curveSegments: 1; size: 1.5; height: 0.5;" material="color:pink; metalness:0.9; roughness: 0.05; sphericalEnvMap: #chrome;" rotation="" visible=""></a-entity>
+
+        <a-entity position="1 0 0.3" text-geometry="value: Aesthetic; font: #exoItalicFont; style: italic; size: 0.8; weight: bold; height: 0;" material="shader: flat; color: white" rotation="" scale="" visible=""></a-entity>
+        <a-entity position="1 0 0.3" text-geometry="value: Aesthetic; font: #exoItalicFont; style: italic; size: 0.8; weight: bold; height: 0; bevelEnabled: true; bevelSize: 0.04; bevelThickness: 0.04; curveSegments: 1" material="shader: flat; color: white; transparent: true; opacity: 0.4" rotation="" scale="" visible=""></a-entity>
+      
+<!-- By Ada Rose Edwards @lady_ada_king. -->
+
+
+  
+    <title>Vaporwave - A-Frame</title>
+    <meta name="description" content="Vaporwave aesthetic text By Ada Rose Edwards (@lady_ada_king)." />
+    <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-text-geometry-component@0.5.1/dist/aframe-text-geometry-component.min.js"></script>
+  
+  
+    <a-scene class="fullscreen" canvas="" inspector="url:https://unpkg.com/aframe-inspector@0.5.x/dist/aframe-inspector.min.js" keyboard-shortcuts="enterVR:true;exitVR:true;resetSensor:true" screenshot="width:4096;height:2048" vr-mode-ui="enabled:true" auto-enter-vr="display:GearVR;enabled:true">
+      <a-assets>
+        <img id="pink" src="https://img.gs/bbdkhfbzkk/stretch/http://i.imgur.com/1hyyIUi.jpg" crossorigin="anonymous" />
+        <img src="https://img.gs/bbdkhfbzkk/stretch/https://i.imgur.com/25P1geh.png" id="grid" crossorigin="anonymous" />
+        <img src="https://img.gs/bbdkhfbzkk/2048x1024,stretch/http://i.imgur.com/WMNH2OF.jpg" id="chrome" crossorigin="anonymous" />
+        <img id="sky" src="https://img.gs/bbdkhfbzkk/2048x2048,stretch/http://i.imgur.com/WqlqEkq.jpg" crossorigin="anonymous" />
+        <a-asset-item id="dawningFont" src="https://cdn.glitch.com/c719c986-c0c5-48b8-967c-3cd8b8aa17f3%2FdawningOfANewDayRegular.typeface.json?1490305922844"></a-asset-item>
+        <a-asset-item id="exoFont" src="https://cdn.glitch.com/c719c986-c0c5-48b8-967c-3cd8b8aa17f3%2Fexo2Black.typeface.json?1490305922150"></a-asset-item>
+        <a-asset-item id="exoItalicFont" src="https://cdn.glitch.com/c719c986-c0c5-48b8-967c-3cd8b8aa17f3%2Fexo2BlackItalic.typeface.json?1490305922725"></a-asset-item>
+      </a-assets>
+
+      <a-entity scale="2 2 2" geometry="primitive:torusKnot" position="0 20 -10" material="color:magenta;metalness:1;roughness:0.1;sphericalEnvMap:#sky" rotation="0 0 199.79200800000004" visible="true" quaternion="" velocity="" dynamic-body="sphereRadius:NaN">
+        <a-animation easing="linear" attribute="rotation" dur="10000" to="0 0 360" repeat="indefinite"></a-animation>
+      </a-entity>
+
+      <a-entity position="-3 1 -6" rotation="5 0 0" scale="1 1 1" visible="true">
+        <a-entity rotation="0 0 5" position="0 2 0.2" text-geometry="value:Hello Web-VR;font:#dawningFont;bevelEnabled:true;bevelSize:0.05;bevelThickness:0.05;curveSegments:12;size:1;height:0" material="color:lavenderblush;metalness:1;roughness:0;sphericalEnvMap:#pink" scale="1 1 1" visible="true"></a-entity>
+
+      <a-entity geometry="primitive:plane;width:10000;height:10000" rotation="-90 0 0" material="src:#grid;repeat:10000 10000;transparent:true;metalness:0.6;roughness:0.4;sphericalEnvMap:#sky" position="0 0 0" scale="1 1 1" visible="true" static-body="sphereRadius:NaN"></a-entity>
+
+      <a-entity light="color:#ccccff;intensity:1;type:ambient" visible="true" position="0 0 0" rotation="0 0 0" scale="1 1 1"></a-entity>
+      <a-entity light="color:ffaaff;intensity:1.5" position="5 5 5" rotation="0 0 0" scale="1 1 1" visible="true"></a-entity>
+      <a-entity light="color:white;intensity:0.5" position="-5 5 15" rotation="0 0 0" scale="1 1 1" visible="true"></a-entity>
+      <a-entity light="color:white;type:ambient" position="0 0 0" rotation="0 0 0" scale="1 1 1" visible="true"></a-entity>
+
+      <a-sky src="#sky" rotation="0 -90 0" position="0 0 0" scale="-1 1 1" visible="true" material="color:#FFF;shader:flat;src:#sky" geometry="primitive:sphere;radius:5000;segmentsWidth:64;segmentsHeight:20"></a-sky>
+    </a-entity><canvas class="a-canvas a-grab-cursor" data-aframe-canvas="true" width="2880" height="1578" style="width: 1440px; height: 789px;"></canvas><a-entity camera="far:10000;fov:50;near:0.05;active:true" position="0 0 0" rotation="0 0 0" scale="1 1 1" visible="true"></a-entity></a-scene>
+  
+<div class="a-inspector-loader">Loading Inspector<span class="dots"><span>.</span><span>.</span><span>.</span></span></div><a style="display: none;"></a></body></html>
