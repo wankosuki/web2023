@@ -2,11 +2,11 @@
 <html>
 <head>
 	<meta charset="UTF-8"/>
-	<link rel="shortcut icon" href="./vr/images/icons/favicon.ico">
+	<!-- <link rel="shortcut icon" href="./vr/images/icons/favicon.ico"> -->
 	<script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
 	<script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
 	<script src="https://unpkg.com/three@0.131.3/examples/js/loaders/TDSLoader.js"></script>
-	<script src="./main.js"></script>
+	<!-- <script src="./main.js"></script> -->
 </head>
 <body>
 	<a-scene stats loading-screen="dotsColor: gray; backgroundColor: lightgray">
@@ -17,14 +17,12 @@
 
 		<!-- Assets -->
 		<a-assets timeout="30000">
-			<a-asset-item id="car_obj" src="./assets/car/car.obj"></a-asset-item>
-			<a-asset-item id="car_mtl" src="./assets/car.mtl"></a-asset-item>
-			<a-asset-item id="submarine_gltf" src="./assets/submarine/scene.gltf"></a-asset-item>
+			<a-asset-item id="car_obj" src="./car_obj/car.obj"></a-asset-item>
+			<a-asset-item id="car_mtl" src="./car_obj/car.mtl"></a-asset-item>
 		</a-assets>
 
 		<!-- GLTF, Obj -->
 		<a-obj-model src="#car_obj" mtl="#car_mtl" position="0 0 -6" rotation="0 -50 0"></a-obj-model>
-		<a-gltf-model src="#submarine_gltf" position="-5 5 -15" rotation="0 -20 0"></a-gltf-model>
 
 	</a-scene>
 </body>
