@@ -25,6 +25,7 @@ AFRAME.registerComponent('input-listen', {
 </script></head><body>
 <a-scene id='scene'>
 	<a-sky color="#222"></a-sky>
-	<a-entity oculus-touch-controls='hand: right' input-listen cursor="rayOrigin: mouse"></a-entity>
+	<a-entity oculus-touch-controls='hand: right' input-listen></a-entity>
+	<a-entity cursor="rayOrigin: mouse" input-listen></a-entity>
 </a-scene>
 </body></html>
