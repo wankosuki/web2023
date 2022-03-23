@@ -2,9 +2,9 @@
 <title>boxcraft simplest for Keyboard</title>
 <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
 <script type="module">
-AFRAME.registerComponent('input-listen', {
+AFRAME.registerComponent('click-change', {
 	init: function() {
-		this.el.addEventListener('triggerdown', function(evt) {
+		this.el.addEventListener('click', function(evt) {
 			const p = this.object3D.getWorldPosition();
 			const size = 0.1;
 			const p2 = {
@@ -25,6 +25,14 @@ AFRAME.registerComponent('input-listen', {
 </script></head><body>
 <a-scene id='scene'>
 	<a-sky color="#222"></a-sky>
-	<a-entity oculus-touch-controls='hand: right' input-listen></a-entity>
+	<a-entity
+	    id="button"
+	    click-change
+    		geometry="primitive: ring; radiusInner: 0.75; radiusOuter: 0.8"
+    		material="color: white; side: double;"
+    		raycaster="objects: .clickable"
+    	>
+</a-entity>
+	<!-- <a-entity oculus-touch-controls='hand: right' input-listen></a-entity> -->
 </a-scene>
 </body></html>
