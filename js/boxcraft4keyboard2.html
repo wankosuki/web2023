@@ -32,7 +32,7 @@ AFRAME.registerComponent('input-listen', {
                 geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
                 material="color: black; shader: flat"></a-entity>
         </a-entity>
-        <a-entity id="bbox" input-listen geometry="primitive: box" position="0 1 -5" material="color: blue"></a-entity>
+        <a-entity id="bbox" input-listen geometry="primitive: box" position="0 1 -5" material="color: blue" raycaster="objects: .clickable"></a-entity>
 	<!-- 
        	<a-entity id="bbox" cursor-listener geometry="primitive: box" position="0 1 -5" material="color: blue"></a-entity>
 
