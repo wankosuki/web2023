@@ -25,9 +25,7 @@ AFRAME.registerComponent('click-change', {
 </script></head><body>
 <a-scene id='scene'>
 	<a-sky color="#222"></a-sky>
-	<a-entity camera look-controls>
-		<a-entity cursor="rayOrigin: mouse"></a-entity>
-	</a-entity>
+	<a-entity cursor="rayOrigin: mouse"></a-entity>
 	<a-entity id="button" click-change geometry="primitive: ring; radiusInner: 0.75; radiusOuter: 0.8" material="color: white; side: double;" raycaster="objects: .clickable" ></a-entity>
 	<!-- <a-entity oculus-touch-controls='hand: right' input-listen></a-entity> 
 	　参考サイト　https://kabos.hatenablog.jp/entry/2020/11/06/160819
