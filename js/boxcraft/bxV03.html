@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>改造03_0:boxcraft for Oculus Quest - A-Frame</title>
+	<script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
+  <!-- modify 1.1.0 -> 1.3.0 -->
+</head>
+<body>
+<script type="module">
+window.onload = function() {
+	const scene = document.querySelector('a-scene');
+	const list = [];
+	handright.addEventListener('triggerdown', function(evt) {
+		const p = handright.getAttribute('position');
+		const snap = 0.1;
+		const p2 = {
+			x: Math.floor(p.x / snap) * snap + snap / 2,
+			y: Math.floor(p.y / snap) * snap + snap / 2,
+			z: Math.floor(p.z / snap) * snap + snap / 2,
+		};
+		const box = document.createElement('a-box');
+		box.setAttribute('position', p2);
+		box.setAttribute('mixin', 'voxel');
+		scene.appendChild(box);
+		list.push(box);
+	});
+	handright.addEventListener('gripdown', function(evt) {
+		const b = list.pop();
+		if (b)
+			scene.removeChild(b);
+	});
+	handright.addEventListener('bbuttondown', function(evt) {
+		const boxes = scene.querySelectorAll('a-box');
+		for (let i = 0; i < boxes.length; i++)
+			scene.removeChild(boxes[i]);
+	});
+};
+</script>
+<a-scene>
+	<a-text  position="-1 1 -1" color="red" rotation="0 0 0" value="Hello, World!" ></a-text>
+	<a-text  position="0 3 -1" color="blue" rotation="0 0 0" value="Hello, World!"></a-text>
+	
+	<a-plane position="0 0 0" rotation="-90 0 0" width="10" height="10" src="./img/back.png"></a-plane>
+	<a-plane position="0 5 0" rotation="90 0 0" width="10" height="10" src="./img/back.png"></a-plane>
+	
+	<a-plane position="0 2.5 -5" rotation="0 0 0" width="10" height="5" src="./img/back.png"></a-plane>
+	<a-plane position="0 2.5 5" rotation="0 180 0" width="10" height="5" src="./img/back.png"></a-plane>
+	
+	<a-plane position="5 2.5 0" rotation="0 -90 0" width="10" height="5" src="./img/back.png"></a-plane>
+	<a-plane position="-5 2.5 0" rotation="0 90 0" width="10" height="5" src="./img/back.png"></a-plane>
+	
+	<a-assets>
+	<a-mixin id="voxel"
+		geometry="primitive: box; height: 0.1; width: 0.1; depth: 0.1"
+		material="shader: standard">
+	</a-mixin>
+	</a-assets>
+	<a-entity id=handleft oculus-touch-controls="hand: left" laser-controls line="color: green; opacity: 1.25;"></a-entity>
+	<a-entity id=handright oculus-touch-controls="hand: right" laser-controls raycaster="showLine: true; far: .05" line="color: white; opacity: 0.75;"></a-entity>
+</a-scene>
+</body>
+</html>
