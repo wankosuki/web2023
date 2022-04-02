@@ -39,16 +39,15 @@ window.onload = function() {
 </script>
 <a-scene>
 	<a-text  position="-1 1 -1" color="red" rotation="0 0 0" value="Hello, World!" ></a-text>
+	<a-text  position="0 3 -1" color="blue" rotation="0 0 0" value="Hello, World!"></a-text>
 	<a-assets>
 	<a-mixin id="voxel"
 		geometry="primitive: box; height: 0.1; width: 0.1; depth: 0.1"
 		material="shader: standard">
 	</a-mixin>
 	</a-assets>
-	<a-entity id=handleft oculus-touch-controls="hand: left" laser-controls raycaster="showLine: true; far: .15" line="color: green; opacity: 1.25;"></a-entity>
-  <!-- add laser controls etc. -->
+	<a-entity id=handleft oculus-touch-controls="hand: left" laser-controls line="color: green; opacity: 1.25;"></a-entity>
 	<a-entity id=handright oculus-touch-controls="hand: right" laser-controls raycaster="showLine: true; far: .05" line="color: white; opacity: 0.75;"></a-entity>
-	<a-text  position="0 3 -1" color="blue" rotation="0 0 0" value="Hello, World!"></a-text>
 </a-scene>
 </body>
 </html>
