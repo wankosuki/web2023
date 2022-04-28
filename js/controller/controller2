@@ -16,8 +16,8 @@
       <a-plane position="0 2.5 5" rotation="0 180 0" width="10" height="5" src="https://tmdoi.github.io/website/js/controller/back.png" shadow></a-plane>
       <a-plane position="5 2.5 0" rotation="0 -90 0" width="10" height="5" src="https://tmdoi.github.io/website/js/controller/back.png" shadow></a-plane>
       <a-plane position="-5 2.5 0" rotation="0 90 0" width="10" height="5" src="https://tmdoi.github.io/website/js/controller/back.png" shadow></a-plane>
-      <a-entity laser-control="hand: left"> </a-entity>
-      <a-entity laser-control="hand: right"> </a-entity>
+      <a-entity oculus-touch-controls="hand: left"> </a-entity>
+      <a-entity oculus-touch-controls="hand: right"> </a-entity>
       <a-sky color="#ECECEC"></a-sky>
     </a-scene>
   </body>
