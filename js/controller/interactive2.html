@@ -12,12 +12,12 @@
                     //xボタンを押し始めたときに実行される(左手のみ)
           this.el.addEventListener('xbuttondown', function (e) {
                   txt.setAttribute("value", "x pressed");
-                  this.emit('teleportstart');
+                  //  this.emit('teleportstart');
           });
           //xボタンを離したときに実行される (左手のみ)
           this.el.addEventListener('xbuttonup', function (e) {
                   txt.setAttribute("value", "x released");
-                  this.emit('teleportend');
+                  //  this.emit('teleportend');
           });
           //グリップボタンを押し始めたときに実行される(両手に対応)
           this.el.addEventListener('gripdown', function (e) {
@@ -47,11 +47,9 @@
       <a-entity id="cameraRig">
         <a-entity id="head" camera position="0 1.6 0">
           <a-text id="txt" value="--[+]--" position="0 0 -2.5" rotation="-90 0 0" scale="0.5 0.5 0.5" align="center" color="#FFFFFF"></a-text>
-          // <a-text id="txt" value="xxxx" position="0 0 -2.5" scale="0.5 0.5 0.5" align="center" color="#FFFFFF"></a-text>
         </a-entity>
 
-        <a-entity teleport-controls="cameraRig: #cameraRig; teleportOrigin:#head; startEvents: teleportstart; endEvents: teleportend"
-                  oculus-touch-controls="hand: left" input-listen> </a-entity>
+        <a-entity oculus-touch-controls="hand: left" input-listen> </a-entity>
         <a-entity oculus-touch-controls="hand: right" input-listen> </a-entity>
       </a-entity>
     </a-scene>
