@@ -50,6 +50,12 @@
           this.el.addEventListener('gripup', function (e) {
             txt.setAttribute("value", "grip released");
           });
+          this.el.addEventListener('thumbstickmoved', function (e) {
+            if (e.detail.y > 0.95) { txt.setAttribute("value", "DOWN"); }
+            if (e.detail.y < -0.95) { txt.setAttribute("value", "UP"); }
+            if (e.detail.x < -0.95) { txt.setAttribute("value", "LEFT"); }
+            if (e.detail.x > 0.95) { txt.setAttribute("value", "RIGHT"); }
+          });
         },
         tick: function () { //毎フレーム更新
         }
