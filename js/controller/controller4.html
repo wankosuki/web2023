@@ -18,6 +18,30 @@
           this.el.addEventListener('xbuttonup', function (e) {
             txt.setAttribute("value", "x released");
           });
+          //yボタンを押し始めたときに実行される(左手のみ)
+          this.el.addEventListener('ybuttondown', function (e) {
+            txt.setAttribute("value", "y pressed");
+          });
+          //yボタンを離したときに実行される (左手のみ)
+          this.el.addEventListener('ybuttonup', function (e) {
+            txt.setAttribute("value", "y released");
+          });
+          //aボタンを押し始めたときに実行される(右手のみ)
+          this.el.addEventListener('abuttondown', function (e) {
+            txt.setAttribute("value", "a pressed");
+          });
+          //aボタンを離したときに実行される (右手のみ)
+          this.el.addEventListener('abuttonup', function (e) {
+            txt.setAttribute("value", "a released");
+          });
+          //bボタンを押し始めたときに実行される(右手のみ)
+          this.el.addEventListener('bbuttondown', function (e) {
+            txt.setAttribute("value", "b pressed");
+          });
+          //bボタンを離したときに実行される (右手のみ)
+          this.el.addEventListener('bbuttonup', function (e) {
+            txt.setAttribute("value", "b released");
+          });
           //グリップボタンを押し始めたときに実行される(両手に対応)
           this.el.addEventListener('gripdown', function (e) {
             txt.setAttribute("value", "grip pressed");
