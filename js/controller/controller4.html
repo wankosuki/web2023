@@ -50,6 +50,15 @@
           this.el.addEventListener('gripup', function (e) {
             txt.setAttribute("value", "grip released");
           });
+          //トリガーボタンを押し始めたときに実行される(両手に対応)
+          this.el.addEventListener('triggerdown', function (e) {
+            txt.setAttribute("value", "trigger pressed");
+          });
+          //トリガーボタンを離したときに実行される(両手に対応)
+          this.el.addEventListener('triggerup', function (e) {
+            txt.setAttribute("value", "trigger released");
+          });
+          //ジョイスティックを傾けたとき(両手に対応)
           this.el.addEventListener('thumbstickmoved', function (e) {
             if (e.detail.y > 0.95) { txt.setAttribute("value", "DOWN"); }
             if (e.detail.y < -0.95) { txt.setAttribute("value", "UP"); }
@@ -73,7 +82,7 @@
       <a-plane position="-5 2.5 0" rotation="0 90 0" width="10" height="5" src="https://tmdoi.github.io/website/js/controller/back.png" shadow></a-plane>
       
       <a-entity camera position="0 1.6 0">
-        <a-text id="txt" value="---" position="0 0 -1" scale="0.5 0.5 0.5" align="center" color="#FFFFFF"></a-text>
+        <a-text id="txt" value="-+-" position="0 0 -1" scale="0.5 0.5 0.5" align="center" color="#FFFFFF"></a-text>
       </a-entity>
       
       <a-entity oculus-touch-controls="hand: left" input-listen> </a-entity>
