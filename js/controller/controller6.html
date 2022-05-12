@@ -62,12 +62,12 @@
           //グリップボタンを押し始めたときに実行される(両手に対応)
           this.el.addEventListener('gripdown', function (e) {
             txt.setAttribute("value", "grip pressed");
-            this.grip=false;
+            this.grip=true;
           });
           //グリップボタンを離したときに実行される(両手に対応)
           this.el.addEventListener('gripup', function (e) {
             txt.setAttribute("value", "grip released");
-            this.grip=false;
+            this.grip=true;
           });
           //トリガーボタンを押し始めたときに実行される(両手に対応)
           this.el.addEventListener('triggerdown', function (e) {
