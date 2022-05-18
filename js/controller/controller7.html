@@ -4,7 +4,7 @@
       <meta name="description" content="Hello, WebVR! - A-Frame">
     <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
     <script src="https://rawgit.com/fernandojsg/aframe-teleport-controls/master/dist/aframe-teleport-controls.min.js"></script>
-    <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v3.3.0/dist/aframe-physics-system.min.js"></script>
+    <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v4.0.1/dist/aframe-physics-system.min.js"></script>
   </head>
   <body>
     <script>
@@ -116,7 +116,7 @@
         }
      });
     </script>
-    <a-scene physics="gravity: 0; restitution: 0.9;" background="color: #AAAAAA">
+    <a-scene physics="debug: false; gravity: 0; restitution: 0.9;" background="color: #AAAAAA">
       <a-box class="collidable" position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
       <a-sphere class="collidable" position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
       <a-cylinder class="collidable" position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
