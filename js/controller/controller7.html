@@ -85,6 +85,7 @@
             //Instantiate ball entity in a-scene
             var scene = document.querySelector('a-scene');
             scene.appendChild(ball);
+            txt.setAttribute("value", "sphere appendding finished");
           });
           //トリガーボタンを離したときに実行される(両手に対応)
           this.el.addEventListener('triggerup', function (e) {
