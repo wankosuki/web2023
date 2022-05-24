@@ -4,10 +4,11 @@
       <meta name="description" content="Hello, WebVR! - A-Frame">
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <script src="https://rawgit.com/fernandojsg/aframe-teleport-controls/master/dist/aframe-teleport-controls.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v$npm_package_version/dist/aframe-physics-system.min.js"></script>
     <!--
-    <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v4.0.1/dist/aframe-physics-system.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v$npm_package_version/dist/aframe-physics-system.min.js"></script>
     -->
+    <script src="//cdn.rawgit.com/donmccurdy/aframe-physics-system/v4.0.1/dist/aframe-physics-system.min.js"></script>
+    
   </head>
   <body>
     <script>
@@ -111,7 +112,7 @@
           //コントローラの1.1m手前の座標を計算(コントローラが原点)  
           var p = new THREE.Vector3(ray.x, ray.y, ray.z);
           p.normalize();
-          p.multiplyScalar(1.1);
+          p.multiplyScalar(1.2);
           //ローカル座標(コントローラ中心)をワールド座標に変換
           this.el.object3D.localToWorld(p);
           //Raycasterの先端に選択オブジェクトを追従させる
@@ -131,8 +132,8 @@
       <a-plane position="-5 2.5 0" rotation="0 90 0" width="10" height="5" src="https://tmdoi.github.io/website/js/controller/back.png" shadow></a-plane>
       
       <a-entity id="cameraRig">
-        <a-entity id="head" camera position="0 1.6 0">
-          <a-text id="txt" value="--8--" position="0 0 -1" scale="0.5 0.5 0.5" align="center" color="#FFFFFF"></a-text>
+        <a-entity id="head" camera  wasd-controls look-controls position="0 1.6 0">
+          <a-text id="txt" value="-+8+-" position="0 0 -1" scale="0.5 0.5 0.5" align="center" color="#FFFFFF"></a-text>
         </a-entity>
       
         <a-entity teleport-controls="cameraRig: #cameraRig; teleportOrigin:#head;
