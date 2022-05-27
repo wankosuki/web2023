@@ -89,6 +89,27 @@
             //Instantiate ball entity in a-scene
             var scene = document.querySelector('a-scene');
             scene.appendChild(ball);
+            //レイキャスターの向きを取得
+            var dir = this.getAttribute("raycaster").direction;
+            //ボールを飛ばす力を計算
+            var force = new THREE.Vector3(dir.x, dir.y, dir.z);
+            //2000倍くらいして結構な力をかける準備をする
+            force.multiplyScalar(2000);
+            //ボールにforceというプロパティを宣言して代入
+            ball.force = this.object3D.localToWorld(force); 
+        
+            //物理的演算に必要な情報がballで読み込み終わったら弾を撃つ 
+            ball.addEventListener('body-loaded', function (e) {
+              //弾(this)の位置を取得
+              var p = this.object3D.position;
+              //先ほど計算した弾(this)に加える勢いを取得
+              var f = this.force;
+              //弾に力を加えて飛ばす
+              this.body.applyForce(
+                new CANNON.Vec3(f.x, f.y, f.z), new CANNON.Vec3(p.x, p.y, p.z)
+              );
+            });
+            
             txt.setAttribute("value", "sphere appendding finished");
           });
           //トリガーボタンを離したときに実行される(両手に対応)
