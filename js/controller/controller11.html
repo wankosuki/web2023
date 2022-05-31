@@ -51,6 +51,12 @@
           //aボタンを押し始めたときに実行される(右手のみ)
           this.el.addEventListener('abuttondown', function (e) {
             txt.setAttribute("value", "a pressed");
+            //ballというクラス名のEntity(つまり弾)を全て取得
+            var els = document.querySelectorAll('.ball');
+              //弾を一つずつ削除
+              for (var i = 0; i < els.length; i++) {
+                els[i].parentNode.removeChild(els[i]);
+              }
           });
           //aボタンを離したときに実行される (右手のみ)
           this.el.addEventListener('abuttonup', function (e) {
@@ -142,15 +148,15 @@
      });
     </script>
     <a-scene physics="debug: false; gravity: 0; restitution: 0.9;" background="color: #AAAAAA">
-      <a-box class="collidable" position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
-      <a-sphere class="collidable" position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
-      <a-cylinder class="collidable" position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
-      <a-plane position="0 0 0" rotation="-90 0 0" width="10" height="10" src="https://tmdoi.github.io/website/js/controller/back.png" shadow></a-plane>
-      <a-plane position="0 5 0" rotation="90 0 0" width="10" height="10" src="https://tmdoi.github.io/website/js/controller/back.png" shadow></a-plane>
-      <a-plane position="0 2.5 -5" rotation="0 0 0" width="10" height="5" src="https://tmdoi.github.io/website/js/controller/back.png" shadow></a-plane>
-      <a-plane position="0 2.5 5" rotation="0 180 0" width="10" height="5" src="https://tmdoi.github.io/website/js/controller/back.png" shadow></a-plane>
-      <a-plane position="5 2.5 0" rotation="0 -90 0" width="10" height="5" src="https://tmdoi.github.io/website/js/controller/back.png" shadow></a-plane>
-      <a-plane position="-5 2.5 0" rotation="0 90 0" width="10" height="5" src="https://tmdoi.github.io/website/js/controller/back.png" shadow></a-plane>
+      <a-box static-body class="collidable" position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9"></a-box>
+      <a-sphere static-body class="collidable" position="0 1.25 -5" radius="1.25" color="#EF2D5E"></a-sphere>
+      <a-cylinder static-body class="collidable" position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
+      <a-plane static-body position="0 0 0" rotation="-90 0 0" width="10" height="10" src="https://tmdoi.github.io/website/js/controller/back.png" shadow></a-plane>
+      <a-plane static-body position="0 5 0" rotation="90 0 0" width="10" height="10" src="https://tmdoi.github.io/website/js/controller/back.png" shadow></a-plane>
+      <a-plane static-body position="0 2.5 -5" rotation="0 0 0" width="10" height="5" src="https://tmdoi.github.io/website/js/controller/back.png" shadow></a-plane>
+      <a-plane static-body position="0 2.5 5" rotation="0 180 0" width="10" height="5" src="https://tmdoi.github.io/website/js/controller/back.png" shadow></a-plane>
+      <a-plane static-body position="5 2.5 0" rotation="0 -90 0" width="10" height="5" src="https://tmdoi.github.io/website/js/controller/back.png" shadow></a-plane>
+      <a-plane static-body position="-5 2.5 0" rotation="0 90 0" width="10" height="5" src="https://tmdoi.github.io/website/js/controller/back.png" shadow></a-plane>
       
       <a-entity id="cameraRig">
         <a-entity id="head" camera  wasd-controls look-controls position="0 1.6 0">
