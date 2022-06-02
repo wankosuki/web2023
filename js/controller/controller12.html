@@ -15,6 +15,7 @@
       AFRAME.registerComponent('input-listen', {  
         init:function () { //初期化
           const txt = document.getElementById("txt");
+          const txt2 = document.getElementById("txt2");
           this.el.grip=false;
           
           //スティックの縦方向の値の和
@@ -23,7 +24,7 @@
           //スティックが動いたときに呼ばれる
           this.el.addEventListener('axismove', function (e) {
             //x,yの値が-1~1で得られるのでそれを文字で表示
-            txt.setAttribute("value", e.detail.axis[0].toFixed(2)+","+e.detail.axis[1].toFixed(2));
+            txt2.setAttribute("value", e.detail.axis[0].toFixed(2)+","+e.detail.axis[1].toFixed(2)+","+this.sumY);
             //スティックの縦方向の値合計．ーをかけるのはスティックの前後と±を一致させるため
             this.sumY+=(-e.detail.axis[1]*0.01);
             
@@ -176,6 +177,7 @@
       <a-entity id="cameraRig">
         <a-entity id="head" camera  wasd-controls look-controls position="0 1.6 0">
           <a-text id="txt" value="--12--" position="0 0 -1" scale="0.5 0.5 0.5" align="center" color="#FFFFFF"></a-text>
+          <a-text id="txt2" value="----" position="0 0 -1.2" scale="0.5 0.5 0.5" align="center" color="#FFFFFF"></a-text>
         </a-entity>
       
         <a-entity teleport-controls="cameraRig: #cameraRig; teleportOrigin:#head;
