@@ -17,6 +17,19 @@
           const txt = document.getElementById("txt");
           this.el.grip=false;
           
+          //スティックの縦方向の値の和
+          this.el.sumY=1;
+          
+          //スティックが動いたときに呼ばれる
+          this.el.addEventListener('axismove', function (e) {
+            //x,yの値が-1~1で得られるのでそれを文字で表示
+            txt.setAttribute("value", e.detail.axis[0].toFixed(2)+","+e.detail.axis[1].toFixed(2));
+            //スティックの縦方向の値合計．ーをかけるのはスティックの前後と±を一致させるため
+            this.sumY+=(-e.detail.axis[1]*0.01);
+            
+          });
+          
+          
           //レイキャスターが何かに交差したとき
           this.el.addEventListener('raycaster-intersection', function (e) {
             //複数選択された場合は0番目を覚えさせておく
@@ -73,6 +86,7 @@
           //グリップボタンを押し始めたときに実行される(両手に対応)
           this.el.addEventListener('gripdown', function (e) {
             txt.setAttribute("value", "grip pressed");
+            this.sumY=1;
             this.grip=true;
           });
           //グリップボタンを離したときに実行される(両手に対応)
@@ -139,7 +153,8 @@
           //コントローラの1.1m手前の座標を計算(コントローラが原点)  
           var p = new THREE.Vector3(ray.x, ray.y, ray.z);
           p.normalize();
-          p.multiplyScalar(1.2);
+          //スティックの前後により選択されているオブジェクトを前後に移動
+          p.multiplyScalar(1.2*this.el.sumY);
           //ローカル座標(コントローラ中心)をワールド座標に変換
           this.el.object3D.localToWorld(p);
           //Raycasterの先端に選択オブジェクトを追従させる
