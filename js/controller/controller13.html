@@ -21,13 +21,14 @@
           //スティックの縦方向の値の和
           this.el.sumY=1;
           
+          
           //スティックが動いたときに呼ばれる
-          this.el.addEventListener('axismove', function (e) {
+          //this.el.addEventListener('axismove', function (e) {
             //x,yの値が-1~1で得られるのでそれを文字で表示
-            txt2.setAttribute("value", e.detail.axis[0].toFixed(2)+","+e.detail.axis[1].toFixed(2)+","+this.sumY);
+            //txt2.setAttribute("value", e.detail.axis[0].toFixed(2)+","+e.detail.axis[1].toFixed(2)+","+this.sumY);
             //スティックの縦方向の値合計．ーをかけるのはスティックの前後と±を一致させるため
-            this.sumY+=(-e.detail.axis[1]*0.01);
-            
+            //this.sumY+=(-e.detail.axis[1]*0.01);
+          
           });
           
           
@@ -146,9 +147,9 @@
             
             //axismoveの内容を以下にコピー
             //x,yの値が-1~1で得られるのでそれを文字で表示
-            txt2.setAttribute("value", e.detail.axis[0].toFixed(2)+","+e.detail.axis[1].toFixed(2)+","+this.sumY);
+            txt2.setAttribute("value", e.detail.x.toFixed(2)+","+e.detail.y.toFixed(2)+","+this.sumY);
             //スティックの縦方向の値合計．ーをかけるのはスティックの前後と±を一致させるため
-            this.sumY+=(-e.detail.axis[1]*0.01);
+            this.sumY+=(-e.detail.y*0.01);
           });
         },
         
