@@ -28,8 +28,7 @@
             //txt2.setAttribute("value", e.detail.axis[0].toFixed(2)+","+e.detail.axis[1].toFixed(2)+","+this.sumY);
             //スティックの縦方向の値合計．ーをかけるのはスティックの前後と±を一致させるため
             //this.sumY+=(-e.detail.axis[1]*0.01);
-          
-          });
+          //});
           
           
           //レイキャスターが何かに交差したとき
@@ -183,7 +182,7 @@
       
       <a-entity id="cameraRig">
         <a-entity id="head" camera  wasd-controls look-controls position="0 1.6 0">
-          <a-text id="txt" value="-x-13-y-" position="0 0 -1" scale="0.5 0.5 0.5" align="center" color="#FFFFFF"></a-text>
+          <a-text id="txt" value="-xy-13-v2-" position="0 0 -1" scale="0.5 0.5 0.5" align="center" color="#FFFFFF"></a-text>
           <a-text id="txt2" value="0,0,0" position="0 -0.1 -1" scale="0.5 0.5 0.5" align="center" color="#FFFFFF"></a-text>
         </a-entity>
       
