@@ -162,10 +162,13 @@
           var ray = this.el.getAttribute("raycaster").direction;
           //コントローラの1.1m手前の座標を計算(コントローラが原点)  
           var p = new THREE.Vector3(ray.x, ray.y, ray.z);
+          var w = new THREE.Vector3(ray.y, -ray.x, ray.z);
           p.normalize();
-          var w = new THREE.Vector3(1.2*this.el.sumX, 1.2*this.el.sumY, 1);
+          w.normalize();
           //スティックの前後により選択されているオブジェクトを前後に移動
-          p.multiplyVectors(p, w);
+          p.multiplyScalar(1.2*this.el.sumY);
+          w.multiplyVectors(1.2*this.el.sumX);
+          p.addVectors(p, w);
           //p.x = p.x * 1.2*this.el.sumX;
           //p.y = p.y * 1.2*this.el.sumY;
           //p.z = p.z ;
@@ -189,7 +192,7 @@
       
       <a-entity id="cameraRig">
         <a-entity id="head" camera  wasd-controls look-controls position="0 1.6 0">
-          <a-text id="txt" value="--15-v2-" position="0 0 -1" scale="0.5 0.5 0.5" align="center" color="#FFFFFF"></a-text>
+          <a-text id="txt" value="--15-v3-" position="0 0 -1" scale="0.5 0.5 0.5" align="center" color="#FFFFFF"></a-text>
           <a-text id="txt2" value="0,0,0,0" position="0 -0.1 -1" scale="0.5 0.5 0.5" align="center" color="#FFFFFF"></a-text>
         </a-entity>
       
