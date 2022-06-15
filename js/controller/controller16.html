@@ -20,7 +20,7 @@
           
           //スティックの縦方向の値の和
           this.el.sumY=1;
-          this.el.sumX=1;
+          this.el.sumX=0;
           
           
           //スティックが動いたときに呼ばれる
@@ -150,7 +150,7 @@
             txt2.setAttribute("value", e.detail.x.toFixed(2)+","+e.detail.y.toFixed(2)+","+this.sumX.toFixed(2)+","+this.sumY.toFixed(2));
             //スティックの縦方向の値合計．ーをかけるのはスティックの前後と±を一致させるため
             this.sumY+=(-e.detail.y*0.01);
-            this.sumX+=(-e.detail.x*0.01);
+            this.sumX+=( e.detail.x*0.01);
             
           });
         },
@@ -162,13 +162,15 @@
           var ray = this.el.getAttribute("raycaster").direction;
           //コントローラの1.1m手前の座標を計算(コントローラが原点)  
           var p = new THREE.Vector3(ray.x, ray.y, ray.z);
-          //var w = new THREE.Vector3(ray.y, -ray.x, ray.z);
-          var w = new THREE.Vector3(0.1, 0, 0);
           p.normalize();
-          //w.normalize();
+          
+          //var w = new THREE.Vector3(ray.x, ray.y, ray.z);
+          var w = new THREE.Vector3(1, 0, 0);
+          w.normalize();
+          
           //スティックの前後により選択されているオブジェクトを前後に移動
           p.multiplyScalar(1.2*this.el.sumY);
-          w.multiplyScalar(1.2*this.el.sumX);
+          w.multiplyScalar(0.2*this.el.sumX);
           p.addVectors(p, w);
           //p.x = p.x * 1.2*this.el.sumX;
           //p.y = p.y * 1.2*this.el.sumY;
@@ -193,7 +195,7 @@
       
       <a-entity id="cameraRig">
         <a-entity id="head" camera  wasd-controls look-controls position="0 1.6 0">
-          <a-text id="txt" value="--16-v1-" position="0 0 -1" scale="0.5 0.5 0.5" align="center" color="#FFFFFF"></a-text>
+          <a-text id="txt" value="--16-v2-" position="0 0 -1" scale="0.5 0.5 0.5" align="center" color="#FFFFFF"></a-text>
           <a-text id="txt2" value="0,0,0,0" position="0 -0.1 -1" scale="0.5 0.5 0.5" align="center" color="#FFFFFF"></a-text>
         </a-entity>
       
