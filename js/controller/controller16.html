@@ -163,9 +163,9 @@
           //コントローラの1.1m手前の座標を計算(コントローラが原点)  
           var p = new THREE.Vector3(ray.x, ray.y, ray.z);
           //var w = new THREE.Vector3(ray.y, -ray.x, ray.z);
-          var w = new THREE.Vector3(0, 0.1, 0);
+          var w = new THREE.Vector3(0.1, 0, 0);
           p.normalize();
-          w.normalize();
+          //w.normalize();
           //スティックの前後により選択されているオブジェクトを前後に移動
           p.multiplyScalar(1.2*this.el.sumY);
           w.multiplyScalar(1.2*this.el.sumX);
