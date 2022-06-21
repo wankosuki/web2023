@@ -91,6 +91,7 @@
           this.el.addEventListener('gripdown', function (e) {
             txt.setAttribute("value", "grip pressed");
             this.sumY=1;
+            this.sumX=0;
             this.grip=true;
           });
           //グリップボタンを離したときに実行される(両手に対応)
